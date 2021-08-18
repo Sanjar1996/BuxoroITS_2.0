@@ -116,7 +116,7 @@
         
         <div class="section-title">
           <h2>Biz haqimizda</h2>
-          <p>Янги ўқув йилида мактабларда дарслар гибрид шаклда давом этиши кутиляпти</p>
+          <p>Buxoro ilmiy-tajriba stansiyasining tashkil etilishi haqida.</p>
         </div>
 
       {% for future in future_model %}
@@ -127,9 +127,9 @@
           {% endif %}
           </div>
           <div class="col-md-7 pt-4">
-            <h3>{{ future.title }}</h3>
+            <h3>{{ future.title|safe }}</h3>
             <p class="fst-italic">
-              {{ future.descriptions }}
+              {{ future.descriptions|safe }}
             </p>
           </div>
         </div>
