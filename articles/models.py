@@ -4,7 +4,7 @@ from ckeditor.fields import RichTextField
 
 
 class HomeCaruselModel(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(verbose_name="title karusel", max_length=100)
     summary = models.CharField(max_length=250)
     body = RichTextField()
     def __str__(self):
