@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class='container-fluid'>
+  <div class='card'>
+    <div class='card-body'>
+      {% if news.image %}
+        <img class='card-img-top' src="{{ news.image.url }}" style="width: 50%">
+      {% endif %}
+        <h1 class="card-title"> {{ news.title }} </h1>
+        <h6 class="card-subtitle mb-2 tetx-muted"> Vaqt: {{ news.date }} </h6>
+        <p class="card-text">{{ news.body  | safe}}</p>
+        <a href="{% url 'news' %}">Barcha yangiliklar</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
