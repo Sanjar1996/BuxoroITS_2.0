@@ -1413,6 +1413,10 @@ section {
   overflow: hidden;
 }
 
+.team .member .member-img img {
+  height: 250px;
+}
+
 .team .member .social {
   position: absolute;
   left: 0;

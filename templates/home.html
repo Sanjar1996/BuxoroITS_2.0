@@ -86,7 +86,7 @@
         <div class="row">
           {% for data in  mainsite_models %}
           <div class="col-lg-6 ">
-          {% if data.image%}
+          {% if data.image %}
             {% comment %} <img src="{{ data.image.url }}" class="img-fluid" alt=""> {% endcomment %}
              <video width="500" height="" controls muted>
                 <source src="{{ data.video.url }}" type="video/mp4">
