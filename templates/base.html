@@ -39,7 +39,7 @@
 
       <div class="logo">
         {% comment %} <img src="{% static '/img/logo2.png' %}" alt="logo"> {% endcomment %}
-        <h1 class="text-light"><a href="{% url 'home' %}"><span>Buxoro ITS</span></a></h1>
+        <h1 class="text-light"><a href="{% url 'home' %}"><span>Buxoro ilmiy-tajriba <br>stansiyasi</span></a></h1>
       </div>
 
       <nav id="navbar" class="navbar">
@@ -49,7 +49,7 @@
           <li><a href="{% url 'news' %}" class={% active_link 'news' %}>Yangiliklar</a></li>
           <li><a href="{% url 'hodim' %}" class={% active_link 'hodim' %}>Hodim</a></li>
         <ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        {% comment %} <i class="bi bi-list mobile-nav-toggle"></i> {% endcomment %}
       </nav><!-- .navbar -->
     </div>
   </header><!-- End Header -->
@@ -71,6 +71,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about' %}">Biz haqimizda</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'news' %}">Yangiliklar</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{% url 'hodim' %}">Hodimlar</a></li>
+              
             </ul>
           </div>
 

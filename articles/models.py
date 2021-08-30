@@ -71,9 +71,9 @@ class Newsmodel(models.Model):
 
 class NewsPrise(models.Model):
     title = models.CharField(max_length=50)
-    price = models.SmallIntegerField()
-    tarif = models.CharField(max_length=50)
-    plan = models.CharField(max_length=100)
+    price = models.FloatField()
+    tarif = models.CharField(max_length=50, blank=True)
+    plan = models.CharField(max_length=100, blank=True)
     
     def __str__(self) -> str:
         return self.title

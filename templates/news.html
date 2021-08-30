@@ -33,7 +33,8 @@
               {% endif %}
               </div>
               <div class="card-body">
-                <h5 class="card-title"><a href="{% url 'detail' data.pk %} ">{{ data.title }}</a></h5>
+                <h5 class="card-title"><a href="{% url 'detail' data.pk %} ">{{ data.title }} </a></h5>
+                {% for tarjimas in tarjima %}{{ tarjimas.tarjima }}{% endfor %}
                 <p> Vaqt | {{ data.date }} </p>
                 <p class="card-text">{{ data.summary }}<a href="{% url 'detail' data.pk %}">...</a></p>
                 <div class="read-more"><a href="{% url 'detail' data.pk%}"><i class="bi bi-arrow-right"></i> Batafsil</a></div>
@@ -69,24 +70,23 @@
 
         <div class="section-title">
           <h2>Narxlar</h2>
-          <p>Ko'rsatiladigan xizmatlarimizning narx navolari</p>
+          <p>Vazirlar Mahkamasining 2021 yil 3 fevraldagi 50-sonli qarori bilan Ijara to'lovining stavkasi o'rmon fondi uchastkasining bir gektari uchun bir yilga bazaviy hisoblash <b>MIQDORLARI</b>. O'rmon barpo etish uchun.</p>
         </div>
 
         <div class="row no-gutters">
         {% for data in news_price%}
           <div class="col-lg-4 box {% if forloop.counter == 2 %} featured {% endif %}">
             <h3>{{ data.title }}</h3>
-            <h4>${{ data.price }}<span>{{ data.tarif }}</span></h4>
+            <h4>{{ data.price }} so'm<span>{{ data.tarif }}</span></h4>
             <ul>
-              <li><i class="bx bx-check"></i> {{ data.plan }}</li>
+              <li>{{ data.plan }}</li>
             </ul>
-            <a href="#" class="get-started-btn">Boshlash</a>
           </div>
         {% endfor %}
-
         </div>
-
+        
       </div>
+      <center><a href="{% static '/Ижара ставкалари.xlsx' %}" class="get-started-btn">Barchasini ko'rish</a></center>
     </section><!-- End Pricing Section -->
 
   </main><!-- End #main -->
