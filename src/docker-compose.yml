@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  buxorodb:
+    container_name: buxorodb
+    image: postgres
+    environment:
+      POSTGRES_DB: db_buxoro
+      POSTGRES_USER: buxorouser
+      POSTGRES_PASSWORD: buxoropass
+    volumes:
+      - postgres_data:/var/lib/postgresql/databuxoro/
+    ports:
+      - "5432:5432"
+  buxoroweb:
+    container_name: backend
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - buxorodb
+    env_file:
+      - ./.env.dev
+
+volumes:
+  postgres_data:
