@@ -32,7 +32,7 @@ SECRET_KEY = "asdjalhfiuehrauiewlhrioqwejraoiejaiorjeoirwq3243"
 # DEBUG = env.bool("DEBUG", default=False)
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["buxoro-tajriba.uz", "localhost", "127.0.0.1"]
 
 # Application definition
 
