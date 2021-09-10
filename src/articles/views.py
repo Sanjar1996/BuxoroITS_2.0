@@ -55,9 +55,9 @@ def newsview(request):
     return render(request, 'news.html', context)
 
 
-# class DetailView(DetailView):
-#     model = Newsmodel
-#     template_name = 'detail.html'
+class DetailView(DetailView):
+    model = Newsmodel
+    template_name = 'detail.html'
 
 def detailview(request, pk):
     news = Newsmodel.objects.get(id=pk)

@@ -23,7 +23,7 @@
     <section class="service-details">
       <div class="container">
         <div class="row">
-        {% for data in page_obj %}
+        {% for data in news_model %}
           <div class="col-md-4 d-flex align-items-stretch" data-aos="fade-up">
             <div class="card">
               <div class="card-img">
@@ -34,7 +34,6 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title"><a href="{% url 'detail' data.pk %} ">{{ data.title }} </a></h5>
-                {% for tarjimas in tarjima %}{{ tarjimas.tarjima }}{% endfor %}
                 <p> Vaqt | {{ data.date }} </p>
                 <p class="card-text">{{ data.summary }}<a href="{% url 'detail' data.pk %}">...</a></p>
                 <div class="read-more"><a href="{% url 'detail' data.pk%}"><i class="bi bi-arrow-right"></i> Batafsil</a></div>
