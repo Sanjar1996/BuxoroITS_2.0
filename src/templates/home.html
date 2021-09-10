@@ -87,12 +87,12 @@
           {% for data in  mainsite_models %}
           <div class="col-lg-6 ">
           {% if data.image %}
-            {% comment %} <img src="{{ data.image.url }}" class="img-fluid" alt=""> {% endcomment %}
-             <video width="500" height="" controls muted>
+            <img src="{{ data.image.url }}" class="img-fluid" alt="">
+             {% comment %} <video width="500" height="" controls muted>
                 <source src="{{ data.video.url }}" type="video/mp4">
                 <!-- <source src="movie.ogg" type="video/ogg"> -->
                 Your browser does not support the video tag.
-              </video> 
+              </video>  {% endcomment %}
           {% endif %}  
             <a href="{{ data.youtube_silka }}" class=" mb-4" data-vbtype="video" data-autoplay="true"></a>
           </div>
