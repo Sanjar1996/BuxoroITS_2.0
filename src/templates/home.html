@@ -82,25 +82,21 @@
     <!-- ======= Why Us Section ======= -->
     <section class="why-us section-bg" data-aos="fade-up" date-aos-delay="200">
       <div class="container">
-
         <div class="row">
           {% for data in  mainsite_models %}
-          <div class="col-lg-6 ">
+          <div class="col-lg-6">
           {% if data.image %}
+          <div class="col-lg-6 video-box">
             <img src="{{ data.image.url }}" class="img-fluid" alt="">
-             {% comment %} <video width="500" height="" controls muted>
-                <source src="{{ data.video.url }}" type="video/mp4">
-                <!-- <source src="movie.ogg" type="video/ogg"> -->
-                Your browser does not support the video tag.
-              </video>  {% endcomment %}
-          {% endif %}  
-            <a href="{{ data.youtube_silka }}" class=" mb-4" data-vbtype="video" data-autoplay="true"></a>
+            <a href="{{ data.youtube_silka }}" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+          </div>
+          {% endif %}
           </div>
 
           <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
 
             <div class="icon-box">
-              {% comment %} <div class="icon"><i class="{{ data.icon }}"></i></div>  {% endcomment %}
+              <div class="icon"><i class="{{ data.icon }}"></i></div> 
               <h4 class="title"><a href="{{ data.youtube_silka }}">{{ data.title }}</a></h4>
               <p class="description">{{ data.body|safe }}</p>
             </div>
