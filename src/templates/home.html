@@ -64,7 +64,7 @@
             {% endif %}
 
             <span class="current">
-                saxifa {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                saxifa {{ page_obj.number }} dan {{ page_obj.paginator.num_pages }}.
             </span>
               {% if page_obj.has_next %}
                   <a href="?page={{ page_obj.next_page_number }}">keyingi</a>
