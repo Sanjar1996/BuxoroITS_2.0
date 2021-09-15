@@ -22,7 +22,7 @@
         dockerfile: Dockerfile.prod
       command: gunicorn config.wsgi:application --bind 0.0.0.0:2020
       volumes:
-        - static_volume_buxoro:/home/app/web/staticfiles
+        - static_volume_buxoro:/home/app/web/static
         - media_volume_buxoro:/home/app/web/media
       networks:
         - buxoro-network
@@ -38,7 +38,7 @@
       restart: always
       build: ./nginx
       volumes:
-        - static_volume_buxoro:/home/app/web/staticfiles
+        - static_volume_buxoro:/home/app/web/static
         - media_volume_buxoro:/home/app/web/media
       ports:
         - "4040:4040"
