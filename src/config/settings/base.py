@@ -129,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'uz'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Tashkent'
 
@@ -146,12 +146,12 @@ USE_TZ = True
 # STATICFILES_DIRS = [
 #     str(BASE_DIR.joinpath('static'))
 # ]
-STATIC_ROOT = os.path.join("staticfiles")
+# STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]

@@ -1,57 +1,57 @@
-version: '2'
+  version: '2'
 
-services:
-  buxorodb_prod:
-    container_name: buxorodb_prod
-    restart: always  
-    image: postgres:12.2
-    environment:
-      POSTGRES_DB: db_buxoro_prod
-      POSTGRES_USER: buxorouser_prod
-      POSTGRES_PASSWORD: buxoropass_prod
-    networks:
-      - buxoro-network
-    volumes:
-        - buxorodata:/var/lib/postgresql/buxorodata/
-    
-  buxoroweb_prod:
-    container_name: buxoroweb_prod
-    restart: always  
-    build:
-      context: .
-      dockerfile: Dockerfile.prod
-    command: gunicorn config.wsgi:application --bind 0.0.0.0:2020
-    volumes:
-      - static_volume_buxoro:/home/app/web/static
-      - media_volume_buxoro:/home/app/web/media
-    networks:
-      - buxoro-network
-    depends_on: 
-      - buxorodb_prod
-    ports:
-      - "2020:2020"
-    env_file: 
-      - ./.env.prod
-
-  buxoronginx:
-    container_name: buxoro-nginx
-    restart: always
-    build: ./nginx
-    volumes:
-      - static_volume_buxoro:/home/app/web/static
-      - media_volume_buxoro:/home/app/web/media
-    ports:
-      - "4040:4040"
-    networks:
-      - buxoro-network
-    depends_on:
-      - buxoroweb_prod
+  services:
+    buxorodb_prod:
+      container_name: buxorodb_prod
+      restart: always  
+      image: postgres:12.2
+      environment:
+        POSTGRES_DB: db_buxoro_prod
+        POSTGRES_USER: buxorouser_prod
+        POSTGRES_PASSWORD: buxoropass_prod
+      networks:
+        - buxoro-network
+      volumes:
+          - buxorodata:/var/lib/postgresql/buxorodata/
       
-volumes:
-  buxorodata:
-  static_volume_buxoro:
-  media_volume_buxoro:
+    buxoroweb_prod:
+      container_name: buxoroweb_prod
+      restart: always  
+      build:
+        context: .
+        dockerfile: Dockerfile.prod
+      command: gunicorn config.wsgi:application --bind 0.0.0.0:2020
+      volumes:
+        - static_volume_buxoro:/home/app/web/static
+        - media_volume_buxoro:/home/app/web/media
+      networks:
+        - buxoro-network
+      depends_on: 
+        - buxorodb_prod
+      ports:
+        - "2020:2020"
+      env_file: 
+        - ./.env.prod
 
-networks:
-  buxoro-network:
-    driver: bridge
+    buxoronginx:
+      container_name: buxoro-nginx
+      restart: always
+      build: ./nginx
+      volumes:
+        - static_volume_buxoro:/home/app/web/static
+        - media_volume_buxoro:/home/app/web/media
+      ports:
+        - "4040:4040"
+      networks:
+        - buxoro-network
+      depends_on:
+        - buxoroweb_prod
+        
+  volumes:
+    buxorodata:
+    static_volume_buxoro:
+    media_volume_buxoro:
+
+  networks:
+    buxoro-network:
+      driver: bridge
